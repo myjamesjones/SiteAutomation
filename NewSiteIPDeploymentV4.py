@@ -2,6 +2,7 @@ import logging
 from sys import path
 from sys import exit
 import math
+import time
 from requests.auth import HTTPBasicAuth
 import urllib3
 import customtkinter as tk
@@ -348,7 +349,8 @@ for entry in range(len(CPData)):
         if network_device: # --------------------------------------------------------------- Validate Device Creation in Clearpass
     #        print("Network device created successfully")
             print("Network Device - ",network_device['name'],network_device['id'])
-
+            print("Pausing 5 seconds")
+            time.sleep(5) # ---------------------------------------------------------------- Add 5 second pause
             # ------------------------------------------------------------------------------ Get Device group id
             GroupID = CP.get_device_group_id(clearpass_url,access_token,CPData[entry]["GroupName"]) 
             print("Group Name     - ",GroupID['name'],GroupID['id'])
