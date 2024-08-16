@@ -1,12 +1,13 @@
 
-
+from common.errors import StandardErrorPopup
+import sys
 
 def CreateStandardSubnets(startingSubnet,strSiteCode):
     int_Number_of_Subnets_in_Pods = 6
     totalNumberOfSubnets = 7
     names=[]
     names.append({"Name":strSiteCode+"-ADMIN","Prefix":24})  # ----------------------- Infrastructure Sunbnet
-    names.append({"Name":strSiteCode+"-SERVERS","Prefix":24})
+    names.append({"Name":strSiteCode+"-WRLSMGMT","Prefix":24})
     names.append({"Name":strSiteCode+"-DATA","Prefix":23})
     names.append({"Name":strSiteCode+"-WIRELESS","Prefix":22})
     names.append({"Name":strSiteCode+"-GUEST","Prefix":22})
@@ -65,3 +66,19 @@ def CreateStandardSubnets(startingSubnet,strSiteCode):
 
     return newSubnets
 
+def GetRegionDNS(Region):
+    try:
+        if Region == "West":
+            DNS_1 = '10.242.4.108'
+            DNS_2 = '10.245.4.108'
+        elif Region == "Central":
+            DNS_1 = '10.245.4.108'
+            DNS_2 = '10.242.4.108'
+        else:
+            DNS_1 = '10.245.4.108'
+            DNS_2 = '10.242.4.108'
+    except:
+        StandardErrorPopup("DNS Region error","Could not retrieve DNS servers for region.")
+        sys.exit()
+
+    return DNS_1,DNS_2

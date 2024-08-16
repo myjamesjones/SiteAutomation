@@ -24,7 +24,7 @@ from common.CreateStandardSubnetDefinitions import CreateStandardSubnets
 from common.EfficientIPMethods import CreateDHCPPool
 from common.EfficientIPMethods import GetDHCPScopeID
 from common.EfficientIPMethods import UpdateDNS
-from common.EfficientIPMethods import GetRegionDNS
+from common.CreateStandardSubnetDefinitions import GetRegionDNS
 from common.logging.LogModule import LogEntry
 from common.errors import StandardErrorPopup
 
