@@ -224,12 +224,13 @@ for entry in subnets:
 root = tk.CTk()
 
 root.title('Select Range')
-root.geometry('100x500+50+50')
+root.geometry('200x500+50+50')
 root.resizable(True,True)
 
 # Sign in frame
 IPRangesMenu = tk.CTkFrame(root)
-IPRangesMenu.pack(fill='x', expand=True)
+IPRangesMenu.grid(column=0, row=0)
+#IPRangesMenu.pack(fill='x', expand=True)
 
 var = tk.Variable(value=radio_keys)
 listbox = lst(
@@ -239,7 +240,8 @@ listbox = lst(
     font=("Helvetica",14),
     selectmode="single"
 )
-listbox.pack(expand=True, fill=tk.BOTH)
+listbox.grid(column=0,row=0)
+#listbox.pack(expand=True, fill=tk.BOTH)
 listbox.bind('<<ListboxSelect>>', items_selected)
 root.mainloop()
 
@@ -318,7 +320,7 @@ WirelessDescription="Wireless"
 MerakiNetworkName=SiteCode + "SF-01-01"
 WirelessNetworkName=SiteCode + "WirelessNet"
 MerakiSubnet=newSubnets[6]['Subnet_IP']+"/"+str(newSubnets[6]['Prefix']) # Meraki Switch Subnet (see order in create CreateStandardSubnetDefinitions)
-WirelessSubnet = newSubnets[2]['Subnet_IP']+"/"+str(newSubnets[2]['Prefix']) # Wireless Mgmt Subnet (see order in create CreateStandardSubnetDefinitions)
+WirelessSubnet = newSubnets[1]['Subnet_IP']+"/"+str(newSubnets[1]['Prefix']) # Wireless Mgmt Subnet (see order in create CreateStandardSubnetDefinitions)
 RadiusSecret="8F1yCYDuidup"
 TacacsSecret="8F1yCYDuidup"
 WirelessGroupName = "AMER-Wireless"
@@ -360,10 +362,10 @@ for entry in range(len(CPData)):
             
             if group_response:
                 print("Device added to group successfully")
-                print(group_response)
-                wait = input("Close Window?")
-                print("The information on the screen is will not be saved.")
-                wait = input("Are you sure?")
+            #    print(group_response)
+            #    wait = input("Close Window?")
+            #    print("The information on the screen is will not be saved.")
+            #    wait = input("Are you sure?")
             else:
                 print("Failed to add device to group")
                 wait = input("Close Window?")

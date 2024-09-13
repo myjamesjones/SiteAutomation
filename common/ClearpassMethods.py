@@ -67,9 +67,9 @@ def add_device_to_group(clearpass_url, access_token, IPAddress, group_id, value)
         "Content-Type": "application/json"
     }
 
-    print("Current List:",value)
+    #print("Current List:",value)
     value = value + ", " + IPAddress
-    print("New List:",value)
+    #print("New List:",value)
 
     payload = {
         'value': value
