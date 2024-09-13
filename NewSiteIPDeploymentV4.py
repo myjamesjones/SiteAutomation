@@ -317,16 +317,16 @@ MerakiDescription="MerakiSwitches"
 WirelessDescription="Wireless"
 MerakiNetworkName=SiteCode + "SF-01-01"
 WirelessNetworkName=SiteCode + "WirelessNet"
-MerakiSubnet=newSubnets[6]['Subnet_IP']+"/"+str(newSubnets[6]['Prefix'])
-WirelessSubnet = newSubnets[3]['Subnet_IP']+"/"+str(newSubnets[3]['Prefix'])
+MerakiSubnet=newSubnets[6]['Subnet_IP']+"/"+str(newSubnets[6]['Prefix']) # Meraki Switch Subnet (see order in create CreateStandardSubnetDefinitions)
+WirelessSubnet = newSubnets[2]['Subnet_IP']+"/"+str(newSubnets[2]['Prefix']) # Wireless Mgmt Subnet (see order in create CreateStandardSubnetDefinitions)
 RadiusSecret="8F1yCYDuidup"
 TacacsSecret="8F1yCYDuidup"
-WirelessGroupName = "BMcD_Aruba_IAP"
+WirelessGroupName = "AMER-Wireless"
 MerakiGroupName = "Meraki Switches"
 
 CPData = [
     {"Description": MerakiDescription, "NetworkName":MerakiNetworkName , "IPAddress":MerakiSubnet,"GroupName":MerakiGroupName, "VendorName":"Meraki"},
-    {"Description": WirelessDescription, "NetworkName":WirelessNetworkName , "IPAddress":WirelessSubnet,"GroupName":WirelessGroupName, "VendorName":"Aruba"}
+    {"Description": WirelessDescription, "NetworkName":WirelessNetworkName , "IPAddress":WirelessSubnet,"GroupName":WirelessGroupName, "VendorName":"Cisco"}
 ]
 
 # ====================================================================================== CLEARPASS SCRIPT CALLS
