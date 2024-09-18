@@ -1,6 +1,8 @@
 import logging
 from sys import path
 from sys import exit
+import os
+path.append(os.path.join(os.path.dirname(__file__), 'common'))
 import math
 import time
 from requests.auth import HTTPBasicAuth
