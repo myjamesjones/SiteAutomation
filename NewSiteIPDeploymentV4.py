@@ -318,10 +318,10 @@ WirelessDescription="Wireless"
 MerakiNetworkName=SiteCode + "SF-01-01"
 WirelessNetworkName=SiteCode + "WirelessNet"
 MerakiSubnet=newSubnets[6]['Subnet_IP']+"/"+str(newSubnets[6]['Prefix'])
-WirelessSubnet = newSubnets[3]['Subnet_IP']+"/"+str(newSubnets[3]['Prefix'])
+WirelessSubnet = newSubnets[3]['Subnet_IP']+"/"+str(newSubnets[1]['Prefix'])
 RadiusSecret="8F1yCYDuidup"
 TacacsSecret="8F1yCYDuidup"
-WirelessGroupName = "BMcD_Aruba_IAP"
+WirelessGroupName = "AMER-Wireless"
 MerakiGroupName = "Meraki Switches"
 
 CPData = [

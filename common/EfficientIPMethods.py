@@ -64,7 +64,7 @@ def GetSubnetList(EIP_URL, AUTH, headers, subnetName, subnetSize): #------------
 def GetSubnetListGUI(EIP_URL, AUTH, headers, subnetName, subnetSize): #-------------------------------------- Return subnets named OPEN
     URLADDON = "ip_block_subnet_list"
     EIP_URL = EIP_URL + URLADDON
-    WHERE = "subnet_name='" + subnetName + "' AND subnet_size=" + str(subnetSize) + "AND is_terminal='0'"
+    WHERE = "subnet_name='" + subnetName + "' AND subnet_size=" + str(subnetSize) + " AND is_terminal='0'"
     parameters = {
         "WHERE": WHERE
     #    "TAGS": "network.gateway"

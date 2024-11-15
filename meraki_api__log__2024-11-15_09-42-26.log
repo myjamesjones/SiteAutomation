@@ -1,0 +1,25 @@
+2024-11-15 09:42:26       meraki:     INFO > Meraki dashboard API session initialized with these parameters: {'version': '1.46.0', 'api_key': '************************************36ab', 'base_url': 'https://api.meraki.com/api/v1', 'single_request_timeout': 60, 'certificate_path': '', 'requests_proxy': '', 'wait_on_rate_limit': True, 'nginx_429_retry_wait_time': 60, 'action_batch_retry_wait_time': 60, 'network_delete_retry_wait_time': 240, 'retry_4xx_error': False, 'retry_4xx_error_wait_time': 60, 'maximum_retries': 2, 'simulate': False, 'be_geo_id': None, 'caller': None, 'use_iterator_for_get_pages': False}
+2024-11-15 09:42:26       meraki:    DEBUG > {'tags': ['organizations', 'configure', 'networks'], 'operation': 'getOrganizationNetworks', 'page': 1}
+2024-11-15 09:42:26       meraki:     INFO > GET https://api.meraki.com/api/v1/organizations/1306906/networks
+2024-11-15 09:42:26       meraki:     INFO > organizations, getOrganizationNetworks; page 1 - 200 OK
+2024-11-15 09:42:26       meraki:    DEBUG > {'tags': ['networks', 'configure'], 'operation': 'getNetwork', 'method': 'GET', 'url': '/networks/L_3918694625765752849', 'params': None}
+2024-11-15 09:42:26       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/L_3918694625765752849
+2024-11-15 09:42:27       meraki:     INFO > networks, getNetwork - 200 OK
+2024-11-15 09:42:27       meraki:    DEBUG > {'tags': ['organizations', 'configure', 'networks'], 'operation': 'createOrganizationNetwork', 'method': 'POST', 'url': '/organizations/1306906/networks', 'json': {'tags': ['NORTH-CENTRAL'], 'timeZone': 'US/Central', 'copyFromNetworkId': 'L_3918694625765752849', 'name': 'GBCIL2-OLDFORT-OH', 'productTypes': ['switch', 'wireless']}}
+2024-11-15 09:42:27       meraki:     INFO > POST https://api.meraki.com/api/v1/organizations/1306906/networks
+2024-11-15 09:42:29       meraki:     INFO > organizations, createOrganizationNetwork - 201 Created
+2024-11-15 09:42:29       meraki:    DEBUG > {'tags': ['networks', 'configure', 'devices'], 'operation': 'claimNetworkDevices', 'method': 'POST', 'url': '/networks/L_3918694625765753022/devices/claim', 'json': {'serials': ['Q2GW-H7TJ-XEKA', 'Q5AM-C3SL-PJAB']}}
+2024-11-15 09:42:29       meraki:     INFO > POST https://api.meraki.com/api/v1/networks/L_3918694625765753022/devices/claim
+2024-11-15 09:42:29       meraki:    ERROR > networks, claimNetworkDevices - 400 Bad Request, {'errors': ['Devices already claimed']}
+2024-11-15 09:42:29       meraki:    DEBUG > {'tags': ['devices', 'configure'], 'operation': 'updateDevice', 'method': 'PUT', 'url': '/devices/Q2GW-H7TJ-XEKA', 'json': {'name': 'GBCIL2-SF-01-01'}}
+2024-11-15 09:42:29       meraki:     INFO > PUT https://api.meraki.com/api/v1/devices/Q2GW-H7TJ-XEKA
+2024-11-15 09:42:30       meraki:     INFO > devices, updateDevice - 200 OK
+2024-11-15 09:42:30       meraki:    DEBUG > {'tags': ['devices', 'configure'], 'operation': 'updateDevice', 'method': 'PUT', 'url': '/devices/Q5AM-C3SL-PJAB', 'json': {'name': 'GBCIL2-AP-01-01'}}
+2024-11-15 09:42:30       meraki:     INFO > PUT https://api.meraki.com/api/v1/devices/Q5AM-C3SL-PJAB
+2024-11-15 09:42:31       meraki:     INFO > devices, updateDevice - 200 OK
+2024-11-15 09:42:31       meraki:    DEBUG > {'tags': ['devices', 'configure'], 'operation': 'updateDevice', 'method': 'PUT', 'url': '/devices/Q2GW-H7TJ-XEKA', 'json': {'address': ''}}
+2024-11-15 09:42:31       meraki:     INFO > PUT https://api.meraki.com/api/v1/devices/Q2GW-H7TJ-XEKA
+2024-11-15 09:42:32       meraki:     INFO > devices, updateDevice - 200 OK
+2024-11-15 09:42:32       meraki:    DEBUG > {'tags': ['switch', 'configure', 'routing', 'interfaces'], 'operation': 'createDeviceSwitchRoutingInterface', 'method': 'POST', 'url': '/devices/Q2GW-H7TJ-XEKA/switch/routing/interfaces', 'json': {'vlanId': '111', 'name': 'admin', 'subnet': '10.26.224.0/24', 'interfaceIp': '10.26.224.10', 'defaultGateway': '10.26.224.1'}}
+2024-11-15 09:42:32       meraki:     INFO > POST https://api.meraki.com/api/v1/devices/Q2GW-H7TJ-XEKA/switch/routing/interfaces
+2024-11-15 09:42:32       meraki:    ERROR > switch, createDeviceSwitchRoutingInterface - 400 Bad Request, {'errors': ["Parameter 'defaultGateway' to be set once and is already configured with a different layer 3 interface."]}
