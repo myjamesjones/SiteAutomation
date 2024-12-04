@@ -72,6 +72,7 @@ root.title('EfficientIP Script')
 root.geometry('600x500+50+50')
 root.resizable(True,True)
 
+
 # Sign in frame
 signin = tk.CTkFrame(root)
 signin.pack(padx=10, pady=10, fill='x', expand=True)
@@ -361,9 +362,9 @@ for entry in range(len(CPData)):
             if group_response:
                 print("Device added to group successfully")
                 print(group_response)
-                wait = input("Close Window?")
-                print("The information on the screen is will not be saved.")
-                wait = input("Are you sure?")
+#                wait = input("Close Window?")
+#                print("The information on the screen is will not be saved.")
+#                wait = input("Are you sure?")
             else:
                 print("Failed to add device to group")
                 wait = input("Close Window?")
