@@ -24,6 +24,7 @@ from common.CreateStandardSubnetDefinitions import CreateStandardSubnets
 from common.EfficientIPMethods import CreateDHCPPool
 from common.EfficientIPMethods import GetDHCPScopeID
 from common.EfficientIPMethods import UpdateDNS
+from common.EfficientIPMethods import add_IP_entry
 from common.CreateStandardSubnetDefinitions import GetRegionDNS
 from common.logging.LogModule import LogEntry
 from common.errors import StandardErrorPopup
@@ -289,6 +290,12 @@ for subnet in range(len(newSubnets)):
 
     print("Creating Subnet - ",Subnet_Name," - ",Subnet_IP)
     Subnet_ID = CreateSubnet(EIP_URL, AUTH, headers, Subnet_Name, Subnet_IP, Subnet_Gateway, Network_prefix, siteId, strParentSubnetId)
+
+    if Subnet_Name[-5:] == "ADMIN":
+        loopbackAddr = f"{Subnet_IP[:-1]}4"
+        fqdn = f"{strSiteCode}-rt-01-01"
+        add_IP_entry(EIP_URL,siteName,AUTH, headers, loopbackAddr, fqdn)
+        
 
     DHCPScope_ID = GetDHCPScopeID(EIP_URL, AUTH, headers,Subnet_IP,Subnet_Mask)
 

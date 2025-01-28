@@ -277,3 +277,38 @@ def GetRegionDNS(Region):
         sys.exit()
 
     return DNS_1,DNS_2
+
+
+def add_IP_entry(EIP_URL, SiteName, AUTH, headers, ip_address, fqdn):
+    
+ 
+    
+    URLADDON = "ip_add"
+    EIP_URL = EIP_URL + URLADDON
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+    payload = {
+        "hostaddr": ip_address,
+        "name": fqdn,
+        "site_name": SiteName,
+    }
+
+    try:
+        response = requests.post(
+            EIP_URL,
+            headers=headers,
+            auth=AUTH,
+            json=payload,
+            verify=False  # Set to True if using a valid SSL certificate
+        )
+        if response.status_code == 201:
+            print(f"DNS entry for {fqdn} added successfully!")
+        else:
+            print(f"Failed to add DNS entry: {response.status_code} - {response.text}")
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error connecting to EfficientIP API: {e}")
+        return None
