@@ -295,6 +295,11 @@ for subnet in range(len(newSubnets)):
         loopbackAddr = f"{Subnet_IP[:-1]}4"
         fqdn = f"{strSiteCode}-rt-01-01"
         add_IP_entry(EIP_URL,siteName,AUTH, headers, loopbackAddr, fqdn)
+    
+    if Subnet_Name[-5:] == "GUEST":
+        GuestPrinterAddr = f"{Subnet_IP[:-1]}253"
+        fqdn = f"{strSiteCode}-guest-printer-01"
+        add_IP_entry(EIP_URL,siteName,AUTH, headers, GuestPrinterAddr, fqdn)
         
 
     DHCPScope_ID = GetDHCPScopeID(EIP_URL, AUTH, headers,Subnet_IP,Subnet_Mask)
